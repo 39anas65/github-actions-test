@@ -1,7 +1,7 @@
 name: Deploy Script
 on: push
 jobs:
-  deploy-script:
+  test-build-script:
     runs-on: ubuntu-latest
     steps:
       - name: Download Code
@@ -14,5 +14,9 @@ jobs:
         run: npm run test
       - name: Run Build
         run: npm run build
-      - name: Deploy Project
-        run: echo "Deployed the Lint Project"
+  deploy-script:
+    needs: test-build-script
+    runs-on: ubuntu-latest
+    steps:
+        - name: Deploy Project
+          run: echo "Deployed the Lint Project"
