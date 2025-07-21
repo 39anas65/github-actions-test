@@ -15,4 +15,10 @@ jobs:
     steps:
       - name: complete program 
         run: echo "Program execution Completed!"
+
+  inspect-context-objects:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: github context inspection
+        run: echo "${{ toJSON(github) }}"
      
