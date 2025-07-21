@@ -29,4 +29,14 @@ jobs:
         run: echo "${{ github.repository }}"
       - name: check step details
         run: echo "${{ steps.notify.outputs }}"
+      - name: MultiLine execution
+        run: |
+          mkdir htt
+          cd htt
+          echo $PATH >> output.txt
+      - name: Download Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-Artifacts
+          path: htt/output.txt
      
