@@ -35,7 +35,7 @@ jobs:
           cd htt
           echo $PATH >> output.txt
       - name: Download Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact
         with:
           name: output-Artifacts
           path: htt/output.txt
