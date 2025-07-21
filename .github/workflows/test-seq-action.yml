@@ -13,7 +13,8 @@ jobs:
     needs: first-event
     runs-on: ubuntu-latest
     steps:
-      - name: complete program 
+      - name: complete program
+        id: notify 
         run: echo "Program execution Completed!"
 
   inspect-context-objects:
@@ -21,4 +22,6 @@ jobs:
     steps: 
       - name: github context inspection
         run: echo "${{ github.repository }}"
+      - name: check step details
+        run: echo "${{ steps.notify.outputs }}"
      
