@@ -6,8 +6,6 @@ on:
      - dev
     paths:
       - files/*
-    paths-ignore:
-      - files/empty.txt
   workflow_dispatch:
 jobs: 
   first-event:
