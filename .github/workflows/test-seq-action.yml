@@ -20,5 +20,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: github context inspection
-        run: echo "${{ toJSON(github) }}"
+        run: echo "${{ github.repository }}"
      
