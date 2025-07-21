@@ -1,0 +1,16 @@
+name: Test Sequential jobs
+on: workflow_dispatch
+jobs: 
+  first-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create 1st dummy event
+        run: python -c "print('One-liner inline Python')"
+
+  subsequent-event:
+    needs: first-event
+    runs-on: ubuntu-latest
+    steps:
+      - name: complete program 
+        run: echo "Program execution Completed!"
+     
