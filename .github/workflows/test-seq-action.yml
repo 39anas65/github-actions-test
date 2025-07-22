@@ -43,6 +43,8 @@ jobs:
   download-artifact-job:
     needs: inspect-context-objects
     runs-on: ubuntu-latest
+    outputs:
+      file-output: ${{ steps.file_content.outputs.file-output }}
     steps:
       - name: create a download directory
         run: mkdir downloads
@@ -52,8 +54,11 @@ jobs:
           name: output-Artifacts
           path: downloads
       - name: list directory
+        id: file_content
         run: |
           ls
           ls downloads
+      - name: list contents of output
+        run: echo 'file-output=$(cat downloads/outputs.txt)' >> $GITHUB_OUTPUT
 
      
