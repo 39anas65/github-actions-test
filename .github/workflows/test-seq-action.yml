@@ -59,7 +59,9 @@ jobs:
           ls
           ls downloads
       - name: list contents of output
-        run: echo "file-output=$(<downloads/output.txt)" >> $GITHUB_OUTPUT
+        run: |
+          content=$(<downloads/output.txt)
+          echo "file-output=$content" >> $GITHUB_OUTPUT
 
   check-outputs-job:
     needs: download-artifact-job
