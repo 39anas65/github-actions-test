@@ -54,12 +54,12 @@ jobs:
           name: output-Artifacts
           path: downloads
       - name: list directory
-        id: file_content
         run: |
           ls
           ls downloads
       - name: list contents of output
-        run: echo "file-output=Hello World!" >> $GITHUB_OUTPUT
+        id: file_content
+        run: echo "file-output=$(cat downloads/output.txt)" >> $GITHUB_OUTPUT
 
   check-outputs-job:
     needs: download-artifact-job
