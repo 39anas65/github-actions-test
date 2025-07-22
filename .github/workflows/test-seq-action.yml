@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: retrieve output
-        run: echo "${{ needs.download-artifact-job.outputs.file-output }}"
+        run: echo "${{ steps.file_content.outputs.file-output }}"
 
 
      
