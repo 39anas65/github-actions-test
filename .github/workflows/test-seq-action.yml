@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: output-Artifacts
-          path: htt/output.
+          path: htt/output.txt
           
   download-artifact-job:
     needs: inspect-context-objects
