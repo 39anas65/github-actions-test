@@ -61,4 +61,12 @@ jobs:
       - name: list contents of output
         run: echo 'file-output=$(cat downloads/outputs.txt)' >> $GITHUB_OUTPUT
 
+  check-outputs-job:
+    needs: download-artifact-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: retrieve output
+        run: echo "${{ needs.download-artifact-job.outputs.file-output }}"
+
+
      
